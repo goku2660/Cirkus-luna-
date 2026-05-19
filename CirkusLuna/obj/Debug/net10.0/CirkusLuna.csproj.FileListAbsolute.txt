@@ -9,3 +9,15 @@ C:\Users\Shah2\source\repos\CirkusLuna\CirkusLuna\obj\Debug\net10.0\CirkusLuna.d
 C:\Users\Shah2\source\repos\CirkusLuna\CirkusLuna\obj\Debug\net10.0\refint\CirkusLuna.dll
 C:\Users\Shah2\source\repos\CirkusLuna\CirkusLuna\obj\Debug\net10.0\CirkusLuna.pdb
 C:\Users\Shah2\source\repos\CirkusLuna\CirkusLuna\obj\Debug\net10.0\ref\CirkusLuna.dll
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\bin\Debug\net10.0\CirkusLuna.deps.json
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\bin\Debug\net10.0\CirkusLuna.dll
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\bin\Debug\net10.0\CirkusLuna.pdb
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\CirkusLuna.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\CirkusLuna.AssemblyInfoInputs.cache
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\CirkusLuna.AssemblyInfo.cs
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\CirkusLuna.csproj.CoreCompileInputs.cache
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\CirkusLuna.sourcelink.json
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\CirkusLuna.dll
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\refint\CirkusLuna.dll
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\CirkusLuna.pdb
+C:\Users\Shah2\source\repos\Cirkus-luna-\CirkusLuna\obj\Debug\net10.0\ref\CirkusLuna.dll

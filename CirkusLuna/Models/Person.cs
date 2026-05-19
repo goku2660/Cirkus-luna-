@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CirkusLuna.Models
 {
-    public abstract class Person
+    public class Person
     {
         public string Name { get; set; }
         public string Email { get; set; }
