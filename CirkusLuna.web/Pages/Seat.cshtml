@@ -1,0 +1,208 @@
+﻿@page
+@model CirkusLuna.Web.Pages.SeatModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sædeoversigt</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        nav {
+            background-color: darkred;
+            padding: 15px 30px;
+        }
+
+            nav p {
+                color: yellow;
+                font-size: 20px;
+                margin: 0;
+            }
+
+        .sektion {
+            padding: 40px;
+        }
+
+        .scene {
+            background-color: darkred;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 420px;
+        }
+
+        .raekke {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            gap: 6px;
+        }
+
+        .raekke-label {
+            width: 60px;
+            font-weight: bold;
+        }
+
+        .saede {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .ledig {
+            background-color: green;
+            color: white;
+        }
+
+        .reserveret {
+            background-color: gray;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .vip {
+            background-color: gold;
+            color: black;
+        }
+
+        .valgt {
+            background-color: blue;
+            color: white;
+        }
+        }
+
+        .formular {
+            background-color: lightgray;
+            padding: 20px;
+            margin-top: 24px;
+            max-width: 420px;
+        }
+
+            .formular input {
+                width: 100%;
+                padding: 8px;
+                margin-top: 6px;
+                font-size: 14px;
+            }
+
+            .formular label {
+                font-weight: bold;
+                display: block;
+                margin-top: 12px;
+            }
+
+            .formular button {
+                background-color: darkred;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                margin-top: 16px;
+            }
+
+        .bekraeftet {
+            background-color: lightgreen;
+            padding: 16px;
+            margin-top: 20px;
+            max-width: 420px;
+        }
+
+        footer {
+            background-color: darkred;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <p><a href="/" style="color:gold;text-decoration:none;">Cirkus Luna</a></p>
+    </nav>
+    <div class="sektion">
+        <h2>Vælg et/eller flere sæder</h2>
+        <div class="scene">SCENE</div>
+        <form method="post">
+            <div class="raekke">
+                <div class="raekke-label">VIP Række 1</div>
+                <button class="saede vip" name="SaedeNavn" value="VIP Raekke 1 Saede 1" type="submit">1</button>
+                <button class="saede vip" name="SaedeNavn" value="VIP Raekke 1 Saede 2" type="submit">2</button>
+                <button class="saede vip" name="SaedeNavn" value="VIP Raekke 1 Saede 3" type="submit">3</button>
+                <button class="saede vip" name="SaedeNavn" value="VIP Raekke 1 Saede 4" type="submit">4</button>
+                <button class="saede vip" name="SaedeNavn" value="VIP Raekke 1 Saede 5" type="submit">5</button>
+            </div>
+            <div class="raekke">
+                <div class="raekke-label">Række 2</div>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 2 Saede 1")" name="SaedeNavn" value="Raekke 2 Saede 1" type="submit">1</button>
+                <button class="saede reserveret" disabled>2</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 2 Saede 3")" name="SaedeNavn" value="Raekke 2 Saede 3" type="submit">3</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 2 Saede 4")" name="SaedeNavn" value="Raekke 2 Saede 4" type="submit">4</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 2 Saede 5")" name="SaedeNavn" value="Raekke 2 Saede 5" type="submit">5</button>
+            </div>
+            <div class="raekke">
+                <div class="raekke-label">Række 3</div>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 3 Saede 1")" name="SaedeNavn" value="Raekke 3 Saede 1" type="submit">1</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 3 Saede 2")" name="SaedeNavn" value="Raekke 3 Saede 2" type="submit">2</button>
+                <button class="saede reserveret" disabled>3</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 3 Saede 4")" name="SaedeNavn" value="Raekke 3 Saede 4" type="submit">4</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 3 Saede 5")" name="SaedeNavn" value="Raekke 3 Saede 5" type="submit">5</button>
+            </div>
+            <div class="raekke">
+                <div class="raekke-label">Række 4</div>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 4 Saede 1")" name="SaedeNavn" value="Raekke 4 Saede 1" type="submit">1</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 4 Saede 2")" name="SaedeNavn" value="Raekke 4 Saede 2" type="submit">2</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 4 Saede 3")" name="SaedeNavn" value="Raekke 4 Saede 3" type="submit">3</button>
+                <button class="saede reserveret" disabled>4</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 4 Saede 5")" name="SaedeNavn" value="Raekke 4 Saede 5" type="submit">5</button>
+            </div>
+            <div class="raekke">
+                <div class="raekke-label">Række 5</div>
+                <button class="saede reserveret" disabled>1</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 5 Saede 2")" name="SaedeNavn" value="Raekke 5 Saede 2" type="submit">2</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 5 Saede 3")" name="SaedeNavn" value="Raekke 5 Saede 3" type="submit">3</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 5 Saede 4")" name="SaedeNavn" value="Raekke 5 Saede 4" type="submit">4</button>
+                <button class="saede @Model.GetSaedeKlasse("Raekke 5 Saede 5")" name="SaedeNavn" value="Raekke 5 Saede 5" type="submit">5</button>
+            </div>
+        </form>
+
+        @if (Model.SaedeValgt)
+        {
+            <div class="formular">
+                <h3>Valgt: @Model.SaedeNavn</h3>
+                <form method="post" asp-page-handler="Bestil">
+                    <input type="hidden" name="SaedeNavn" value="@Model.SaedeNavn" />
+                    <label>Dit navn</label>
+                    <input type="text" name="Navn" placeholder="Skriv dit navn" />
+                    <label>Antal billetter</label>
+                    <input type="number" name="Antal" value="1" min="1" max="10" />
+                    <button type="submit">Bekraeft reservation</button>
+                </form>
+            </div>
+        }
+
+        @if (Model.Bekraeftet)
+        {
+            <div class="bekraeftet">
+                <p>@Model.BekraeftetTekst</p>
+            </div>
+        }
+
+    </div>
+    <footer>
+        <p>2026 Cirkus Luna</p>
+    </footer>
+</body>
+</html>

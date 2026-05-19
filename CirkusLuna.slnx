@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CirkusLuna.Console/CirkusLuna.Console.csproj" />
+  <Project Path="CirkusLuna.web/CirkusLuna.web.csproj" />
+  <Project Path="CirkusLuna/CirkusLuna.csproj" />
+</Solution>

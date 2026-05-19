@@ -1,0 +1,114 @@
+﻿@page
+@model CirkusLuna.Web.Pages.ReservationModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reservér billetter</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        nav {
+            background-color: darkred;
+            padding: 15px 30px;
+        }
+
+            nav p {
+                color: yellow;
+                font-size: 20px;
+                margin: 0;
+            }
+
+        .formular {
+            padding: 40px;
+            max-width: 500px;
+        }
+
+            .formular h2 {
+                font-size: 26px;
+                border-bottom: 2px solid darkred;
+                padding-bottom: 8px;
+                margin-bottom: 20px;
+            }
+
+            .formular label {
+                display: block;
+                margin-top: 16px;
+                font-weight: bold;
+            }
+
+            .formular input {
+                width: 100%;
+                padding: 8px;
+                margin-top: 6px;
+                font-size: 14px;
+            }
+
+            .formular button {
+                background-color: darkred;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+
+        .besked {
+            background-color: lightgreen;
+            padding: 16px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: darkred;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <p><a href="/" style="color: yellow; text-decoration: none;">🎪 Cirkus Luna</a></p>
+    </nav>
+
+    <div class="formular">
+        <h2>Reservér billetter</h2>
+
+        <form method="post">
+            <label>Dit navn</label>
+            <input type="text" name="Name" />
+
+            <label>Email</label>
+            <input type="text" name="Email" />
+
+            <label>Antal billetter</label>
+            <input type="number" name="NumberOfTickets" value="1" min="1" max="10" />
+
+            <button type="submit">Reservér</button>
+        </form>
+
+        @if (Model.Confirmed)
+        {
+            <div class="besked">
+                <p>✅ Din reservation er bekræftet! Tak @Model.Name</p>
+            </div>
+        }
+
+    </div>
+
+    <footer>
+        <p>2026 Cirkus Luna</p>
+    </footer>
+
+</body>
+</html>

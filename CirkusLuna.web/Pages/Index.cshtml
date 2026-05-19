@@ -1,0 +1,147 @@
+﻿@page
+@model CirkusLuna.Web.Pages.IndexModel
+@using CirkusLuna.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cirkus Luna</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        nav {
+            background-color: darkred;
+            padding: 15px 30px;
+        }
+
+            nav p {
+                color: yellow;
+                font-size: 20px;
+                margin: 0;
+            }
+
+        .hero {
+            background-color: darkred;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }
+
+            .hero h1 {
+                color: yellow;
+            }
+
+            .hero h2 {
+                color: yellow;
+            }
+            
+           
+        .sektion {
+            padding: 40px;
+        }
+
+            .sektion h2 {
+                font-size: 26px;
+                border-bottom: 2px solid darkred;
+                padding-bottom: 8px;
+                margin-bottom: 20px;
+            }
+
+        .soeg {
+            margin-bottom: 20px;
+        }
+
+            .soeg input {
+                padding: 8px;
+                font-size: 14px;
+                width: 200px;
+            }
+
+            .soeg button {
+                background-color: darkred;
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+        .kort {
+            background-color: lightgray;
+            padding: 20px;
+            margin: 10px;
+            width: 260px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+            .kort h3 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .kort p {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+
+            .kort button {
+                background-color: darkred;
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                margin-top: 8px;
+            }
+
+        footer {
+            background-color: darkred;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <p>Cirkus Luna</p>
+        <a href="/Admin" style="color:white ;">Admin</a>
+    </nav>
+    <div class="hero">
+        <h1>Velkommen til Cirkus Luna</h1>
+        <h2>Årets største shows!</h2> 
+        <p><i>Sæson 2026</i></p>
+    </div>
+
+    <div class="sektion">
+        <h2>Shows</h2>
+
+        <div class="soeg">
+            <form method="post">
+                <input type="text" name="SoegBy" placeholder="Søg efter by..." value="@Model.SoegBy" />
+                <button type="submit">Søg</button>
+            </form>
+        </div>
+
+        @foreach (Show show in Model.Shows)
+        {
+            <div class="kort">
+                <h3>@show.CityName</h3>
+                <p>@show.Date.ToString("dd/MM/yyyy")</p>
+                <a href="/Seat"><button>Reservér</button></a>
+            </div>
+        }
+
+    </div>
+
+    <footer>
+        <p>2026 Cirkus Luna</p>
+    </footer>
+</body>
+</html>

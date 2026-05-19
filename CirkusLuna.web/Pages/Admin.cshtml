@@ -1,0 +1,159 @@
+﻿@page
+@model CirkusLuna.Web.Pages.AdminModel
+@using CirkusLuna.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        nav {
+            background-color: darkred;
+            padding: 15px 30px;
+        }
+
+            nav p {
+                color: yellow;
+                font-size: 20px;
+                margin: 0;
+            }
+
+        .sektion {
+            padding: 40px;
+        }
+
+            .sektion h2 {
+                font-size: 26px;
+                border-bottom: 2px solid darkred;
+                padding-bottom: 8px;
+                margin-bottom: 20px;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: darkred;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .formular {
+            background-color: lightgray;
+            padding: 20px;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+            .formular label {
+                font-weight: bold;
+                display: block;
+                margin-top: 12px;
+            }
+
+            .formular input {
+                width: 100%;
+                padding: 8px;
+                font-size: 14px;
+                margin-top: 4px;
+            }
+
+            .formular button {
+                background-color: darkred;
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                cursor: pointer;
+                margin-top: 16px;
+            }
+
+        .bekraeftet {
+            background-color: lightgreen;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: darkred;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <p><a href="/" style="color:yellow;text-decoration:none;">Cirkus Luna</a></p>
+    </nav>
+
+    <div class="sektion">
+        <h2>Admin – Administrer shows</h2>
+
+        @if (Model.Bekraeftet)
+        {
+            <div class="bekraeftet">
+                <p>@Model.BekraeftetTekst</p>
+            </div>
+        }
+
+        <!-- Tilføj nyt show -->
+        <h3>Tilføj nyt show</h3>
+        <div class="formular">
+            <form method="post" asp-page-handler="TilfoejShow">
+                <label>By</label>
+                <input type="text" name="CityName" placeholder="Skriv bynavn" />
+                <label>Dato</label>
+                <input type="date" name="Date" />
+                <button type="submit">Tilføj show</button>
+            </form>
+        </div>
+
+        <!-- Oversigt over shows -->
+        <h3>Alle shows</h3>
+        <table>
+            <tr>
+                <th>By</th>
+                <th>Dato</th>
+                <th>Ændre dato</th>
+            </tr>
+            @foreach (Show show in Model.Shows)
+            {
+                <tr>
+                    <td>@show.CityName</td>
+                    <td>@show.Date.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <form method="post" asp-page-handler="AendreDato">
+                            <input type="hidden" name="ShowId" value="@show.ShowId" />
+                            <input type="date" name="NyDato" />
+                            <button type="submit">Gem</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+    <footer>
+        <p>2026 Cirkus Luna</p>
+    </footer>
+</body>
+</html>
