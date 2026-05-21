@@ -11,28 +11,26 @@ namespace CirkusLuna.Web.Pages
 
         public void OnGet()
         {
-            ShowRepository repo = new ShowRepository();
-            repo.Add(new Show(1, "Copenhagen", DateTime.Today.AddDays(10)));
-            repo.Add(new Show(2, "Aarhus", DateTime.Today.AddDays(20)));
-            repo.Add(new Show(3, "Odense", DateTime.Today.AddDays(30)));
-            Shows = repo.GetAll();
+            ShowData.Initialiser();
+            Shows = ShowData.Shows;
         }
 
         public void OnPost()
         {
+            ShowData.Initialiser();
             SoegBy = Request.Form["SoegBy"];
-
-            ShowRepository repo = new ShowRepository();
-            repo.Add(new Show(1, "Copenhagen", DateTime.Today.AddDays(10)));
-            repo.Add(new Show(2, "Aarhus", DateTime.Today.AddDays(20)));
-            repo.Add(new Show(3, "Odense", DateTime.Today.AddDays(30)));
 
             if (SoegBy == "")
             {
-                Shows = repo.GetAll();
+                Shows = ShowData.Shows;
             }
             else
             {
+                ShowRepository repo = new ShowRepository();
+                for (int i = 0; i < ShowData.Shows.Count; i++)
+                {
+                    repo.Add(ShowData.Shows[i]);
+                }
                 Shows = repo.SearchByCity(SoegBy);
             }
         }

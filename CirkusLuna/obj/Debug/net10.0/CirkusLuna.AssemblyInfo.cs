@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CirkusLuna")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d0819b09472e4aaf0bab9d98b42d8ff045dca17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c622413610354793ff2944cf24676ba1249b9b43")]
 [assembly: System.Reflection.AssemblyProductAttribute("CirkusLuna")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CirkusLuna")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

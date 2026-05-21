@@ -1,35 +1,12 @@
-namespace CirkusLuna.web
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-            // Add services to the container.
-            builder.Services.AddRazorPages();
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+builder.Services.AddRazorPages();
+WebApplication app = builder.Build();
 
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MapStaticAssets();
-            app.MapRazorPages()
-               .WithStaticAssets();
-
-            app.Run();
-        }
-    }
-}
+app.UseStaticFiles();
+app.UseRouting();
+app.MapRazorPages();
+app.Run();

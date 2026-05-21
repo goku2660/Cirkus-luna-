@@ -134,6 +134,10 @@
             <div class="kort">
                 <h3>@show.CityName</h3>
                 <p>@show.Date.ToString("dd/MM/yyyy")</p>
+                @foreach (Artist artist in show.Artists)
+                {
+                    <p>@artist.Name - @artist.Specialty</p>
+                }
                 <a href="/Seat"><button>Reservér</button></a>
             </div>
         }

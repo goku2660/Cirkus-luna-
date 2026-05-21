@@ -1,44 +1,35 @@
 ﻿using CirkusLuna.Models;
 using CirkusLuna.Repositories;
 
-// Opret repositories til at gemme data
+// Opret repositories
 ShowRepository showRepo = new ShowRepository();
-ReservationRepository reservationRepo = new ReservationRepository();
 
-// Opret tre shows
+// Opret artister
+Artist artist1 = new Artist(1, "Lars", "lars@cirkus.dk", "Jonglør");
+Artist artist2 = new Artist(2, "Sofia", "sofia@cirkus.dk", "Luftakrobat");
+Artist artist3 = new Artist(3, "Ali", "ali@cirkus.dk", "køre på et hjulet cykel");
+// Opret shows
 Show show1 = new Show(1, "Copenhagen", DateTime.Today.AddDays(10));
 Show show2 = new Show(2, "Aarhus", DateTime.Today.AddDays(20));
 Show show3 = new Show(3, "Odense", DateTime.Today.AddDays(30));
 
-// Tilføj shows til repository
+// Tilføj artister til shows
+show1.AddArtist(artist1);
+show2.AddArtist(artist2);
+show3.AddArtist(artist3);
+
+// Tilføj shows
 showRepo.Add(show1);
 showRepo.Add(show2);
 showRepo.Add(show3);
 
-// Opret en kunde
-Customer customer1 = new Customer(1, "Peter", "peter@mail.dk");
-
-// Opret en reservation til show1
-Reservation res1 = new Reservation(1, customer1, show1, 2);
-reservationRepo.Add(res1);
-
-// Vis alle shows
+// Vis alle shows med artister
 Console.WriteLine("--- All shows ---");
 foreach (Show show in showRepo.GetAll())
 {
     Console.WriteLine(show.CityName + " - " + show.Date.ToString("dd/MM/yyyy"));
-}
-
-// Søg efter shows i Aarhus
-Console.WriteLine("--- Search Aarhus ---");
-foreach (Show show in showRepo.SearchByCity("Aarhus"))
-{
-    Console.WriteLine(show.CityName);
-}
-
-// Vis alle reservationer
-Console.WriteLine("--- All reservations ---");
-foreach (Reservation res in reservationRepo.GetAll())
-{
-    Console.WriteLine(res.Customer.Name + " - " + res.Show.CityName + " - " + res.NumberOfTickets + " tickets");
+    foreach (Artist artist in show.Artists)
+    {
+        Console.WriteLine("  " + artist.Name + " - " + artist.Specialty);
+    }
 }
